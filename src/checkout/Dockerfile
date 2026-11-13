@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 
-FROM docker.io/library/python:3.14-slim AS base
+FROM docker.io/library/python:3.15-slim AS base
 
 FROM base AS builder
 
@@ -17,7 +17,7 @@ RUN mkdir -p /opt/gen \
     && /opt/venv/bin/python -m grpc_tools.protoc -I./pb --python_out=/opt/gen --grpc_python_out=/opt/gen ./pb/demo.proto \
     && /opt/venv/bin/pip uninstall -y grpcio-tools
 
-FROM ghcr.io/grpc-ecosystem/grpc-health-probe:v0.4.61@sha256:9df7b8dfbaf01d20eaedcd6de084c557074046f87cfc0413b7939ae18087c249 AS grpc-health-probe
+FROM ghcr.io/grpc-ecosystem/grpc-health-probe:v0.4.62@sha256:1a900fcfc1b8e680511670908b47d9bc3f8464f88d9159f961c5d55c254b8140 AS grpc-health-probe
 
 FROM base
 
