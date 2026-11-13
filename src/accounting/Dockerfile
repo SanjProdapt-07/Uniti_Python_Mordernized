@@ -1,7 +1,7 @@
 # Copyright The OpenTelemetry Authors
 # SPDX-License-Identifier: Apache-2.0
 
-FROM docker.io/library/python:3.14-slim AS builder
+FROM docker.io/library/python:3.15-slim AS builder
 
 WORKDIR /build
 COPY ./src/accounting/requirements.txt .
@@ -13,7 +13,7 @@ RUN PYTHONPATH=/reqs/lib/python3.14/site-packages \
 
 # -----------------------------------------------------------------------------
 
-FROM docker.io/library/python:3.14-slim
+FROM docker.io/library/python:3.15-slim
 
 RUN useradd --system --uid 10001 --no-create-home app
 
