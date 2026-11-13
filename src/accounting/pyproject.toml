@@ -1,0 +1,10 @@
+[project]
+name = "accounting"
+version = "1.0.0"
+description = "Consumes orders from Kafka and records them in the accounting schema of PostgreSQL."
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+pythonpath = [".", "tests"]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"

@@ -1,0 +1,9 @@
+[project]
+name = "shipping"
+version = "0.1.0"
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
+filterwarnings = ["ignore::DeprecationWarning:fastapi.testclient", "ignore:Using `httpx` with `starlette.testclient`"]

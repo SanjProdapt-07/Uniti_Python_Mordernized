@@ -1,0 +1,44 @@
+{% macro number_input(name, label, value, min=None, max=None) -%}
+<fieldset class="fieldset mb-2">
+  <label>
+    <span class="fieldset-label mb-1">{{ label }}</span>
+    <input
+      type="number"
+      name="{{ name }}"
+      {%- if value is not none %}
+      value="{{ value }}"
+      {%- endif %}
+      class="w-full input"
+      {%- if min is not none %}
+      min="{{ min }}"
+      {%- endif %}
+      {%- if max is not none %}
+      max="{{ max }}"
+      {%- endif %}
+    />
+  </label>
+</fieldset>
+{%- endmacro %}
+<div id="scheduler-timing" class="rounded-md bg-gray-800 p-6 text-gray-300 shadow-md">
+  <p class="mb-4 text-lg font-semibold">Timing</p>
+
+  {{ number_input("interval_seconds", "Interval (seconds)", form.interval_seconds, min="1") }}
+  {{ number_input("min_duration_seconds", "Minimum duration (seconds)", form.min_duration_seconds, min="1") }}
+  {{ number_input("max_duration_seconds", "Maximum duration (seconds)", form.max_duration_seconds, min="1") }}
+  {{ number_input("concurrency", "Flags at once (per interval)", form.concurrency, min="1", max=[available|length, 1]|max) }}
+  {{ number_input("seed", "Seed (optional, for reproducible patterns)", form.seed) }}
+
+  <div class="mt-4 flex flex-wrap gap-2">
+    {%- for preset, label in preset_labels %}
+    <button
+      type="button"
+      class="rounded bg-gray-700 px-3 py-2 text-xs font-medium text-gray-200 transition-colors duration-200 hover:bg-gray-600"
+      ws-send
+      hx-trigger="click"
+      hx-vals='{{ {"__event": "preset", "name": preset}|tojson }}'
+    >
+      {{ label }}
+    </button>
+    {%- endfor %}
+  </div>
+</div>

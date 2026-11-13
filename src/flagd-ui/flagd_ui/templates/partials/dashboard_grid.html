@@ -1,0 +1,5 @@
+<div id="flags-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {%- for name, data in flags.items() %}
+  {% include "partials/dashboard_card.html" %}
+  {%- endfor %}
+</div>

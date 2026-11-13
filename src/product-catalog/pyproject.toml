@@ -1,0 +1,9 @@
+[project]
+name = "product-catalog"
+version = "0.1.0"
+description = "Astronomy Shop product catalog service"
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]

@@ -1,0 +1,11 @@
+<textarea
+  id="editor"
+  name="content"
+  type="textarea"
+  class="mb-4 h-48 w-full bg-gray-700 p-3 text-sm text-gray-300 focus:border-blue-500 focus:outline-none sm:h-64 md:h-80 lg:h-96 xl:h-[32rem] 2xl:h-[48rem]"
+  cols="200"
+  ws-send
+  hx-trigger="input"
+  hx-vals='{"__event": "edit"}'
+>
+{{ content }}</textarea>

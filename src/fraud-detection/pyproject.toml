@@ -1,0 +1,10 @@
+[project]
+name = "fraud-detection"
+version = "1.0.0"
+description = "Consumes orders from Kafka for fraud detection."
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+pythonpath = [".", "tests"]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"

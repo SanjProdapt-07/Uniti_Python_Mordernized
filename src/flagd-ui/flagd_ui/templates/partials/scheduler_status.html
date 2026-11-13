@@ -1,0 +1,51 @@
+<div id="scheduler-status" class="mb-6 rounded-md bg-gray-800 p-6 text-gray-300 shadow-md">
+  <div class="flex items-center justify-between">
+    <div>
+      <p class="text-lg font-semibold">
+        {{ "Scheduler running" if scheduler.running else "Scheduler stopped" }}
+      </p>
+      <p class="text-sm">
+        Activates randomly picked flags each interval, then reverts them to normal.
+      </p>
+    </div>
+    <span class="rounded-full px-3 py-1 text-sm font-medium {{ 'bg-green-700 text-white' if scheduler.running else 'bg-gray-700 text-gray-300' }}">
+      {{ "Active" if scheduler.running else "Idle" }}
+    </span>
+  </div>
+
+  {%- if scheduler.running %}
+  <dl class="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-3">
+    <div>
+      <dt class="font-medium text-gray-400">Interval</dt>
+      <dd>{{ scheduler.interval_count }}</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-400">Seed</dt>
+      <dd>{{ scheduler.seed_used }}</dd>
+    </div>
+    <div>
+      <dt class="font-medium text-gray-400">
+        Currently active ({{ scheduler.active|length }} of {{ scheduler.config.concurrency }})
+      </dt>
+      <dd>
+        {%- if scheduler.active %}
+        <ul>
+          {%- for activation in scheduler.active %}
+          <li>
+            <span class="text-warning">{{ activation.flag }} = {{ activation.variant }}</span>
+            <span class="text-gray-400">
+              ({{ format_ms(activation.until - now) }} left)
+            </span>
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- else %}
+        <span class="text-gray-400">
+          nothing &mdash; next in {{ next_trigger_label(scheduler, now) }}
+        </span>
+        {%- endif %}
+      </dd>
+    </div>
+  </dl>
+  {%- endif %}
+</div>

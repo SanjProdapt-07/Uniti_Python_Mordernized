@@ -1,0 +1,31 @@
+{% macro link_class(route) -%}
+{%- if route == mode -%}
+rounded-md px-3 py-2 text-sm font-medium bg-blue-700 text-white underline underline-offset-4 transition-all duration-200
+{%- else -%}
+rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white transition-all duration-200
+{%- endif -%}
+{%- endmacro %}
+<nav class="bg-gray-800 p-4 sm:p-6" hx-boost="true">
+  <div class="container mx-auto flex items-center justify-between">
+    <a href="{{ path('/') }}" class="text-xl font-bold text-white">
+      Flagd Configurator
+    </a>
+    <ul class="flex space-x-2 sm:space-x-4">
+      <li>
+        <a href="{{ path('/') }}" class="{{ link_class('basic') }}">
+          Basic
+        </a>
+      </li>
+      <li>
+        <a href="{{ path('/advanced') }}" class="{{ link_class('advanced') }}">
+          Advanced
+        </a>
+      </li>
+      <li>
+        <a href="{{ path('/scheduler') }}" class="{{ link_class('scheduler') }}">
+          Scheduler
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

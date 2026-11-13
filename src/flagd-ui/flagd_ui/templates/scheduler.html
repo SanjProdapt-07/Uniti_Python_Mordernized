@@ -1,0 +1,26 @@
+{% extends "root.html" %}
+{% block content %}
+<div class="relative min-h-screen">
+  {% include "partials/navbar.html" %}
+
+  {% include "partials/flashes.html" %}
+
+  <div class="container mx-auto px-4 py-8">
+    {% include "partials/scheduler_status.html" %}
+
+    {% include "partials/scheduler_error.html" %}
+
+    <form id="scheduler-form" ws-send hx-trigger="submit" hx-vals='{"__event": "start"}'>
+      <div id="scheduler-fields" class="grid grid-cols-1 gap-6 lg:grid-cols-2" ws-send hx-trigger="change" hx-vals='{"__event": "validate"}'>
+        {% include "partials/scheduler_timing.html" %}
+
+        {% include "partials/scheduler_flags.html" %}
+      </div>
+
+      {% include "partials/scheduler_actions.html" %}
+    </form>
+
+    {% include "partials/scheduler_history.html" %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<div id="scheduler-actions" class="mt-6 flex gap-4">
+  <button
+    type="submit"
+    class="rounded bg-blue-500 px-8 py-4 font-medium text-white transition-colors duration-200 hover:bg-blue-600"
+  >
+    {{ "Restart" if scheduler.running else "Start" }}
+  </button>
+  {%- if scheduler.running %}
+  <button
+    type="button"
+    class="rounded bg-red-600 px-8 py-4 font-medium text-white transition-colors duration-200 hover:bg-red-700"
+    ws-send
+    hx-trigger="click"
+    hx-vals='{"__event": "stop"}'
+  >
+    Stop
+  </button>
+  {%- endif %}
+</div>

@@ -1,0 +1,13 @@
+confluent-kafka==2.16.1
+grpcio==1.85.1
+grpcio-tools==1.85.1
+openfeature-provider-flagd==0.6.1
+openfeature-sdk==0.10.0
+opentelemetry-api==1.45.2
+opentelemetry-distro==0.66b2
+opentelemetry-exporter-otlp-proto-http==1.45.2
+opentelemetry-instrumentation-grpc==0.66b2
+opentelemetry-instrumentation-logging==0.66b2
+opentelemetry-instrumentation-system-metrics==0.66b2
+opentelemetry-sdk==1.45.2
+protobuf==7.36.2

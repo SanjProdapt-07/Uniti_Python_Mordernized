@@ -1,0 +1,9 @@
+[project]
+name = "recommendation"
+version = "0.1.0"
+description = "Astronomy Shop recommendation service"
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]

@@ -1,0 +1,9 @@
+[project]
+name = "cart"
+version = "0.1.0"
+description = "Astronomy Shop cart service"
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["tests"]

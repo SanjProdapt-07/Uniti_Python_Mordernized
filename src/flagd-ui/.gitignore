@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+demo.flagd.json
+demo.flagd.json.tmp
+/data

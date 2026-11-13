@@ -1,0 +1,29 @@
+<div id="flash-slot-{{ kind }}">
+  {%- set msg = flash.get(kind) -%}
+  {%- if msg %}
+  <div
+    id="flash-{{ kind }}"
+    role="alert"
+    class="toast toast-top toast-end z-50"
+    data-flash
+    ws-send
+    hx-trigger="click"
+    hx-vals='{{ {"__event": "lv:clear-flash", "key": kind}|tojson }}'
+  >
+    <div class="alert w-80 sm:w-96 max-w-80 sm:max-w-96 text-wrap {{ 'alert-info' if kind == 'info' else 'alert-error' }}">
+      {%- if kind == "info" %}
+      <span class="hero-information-circle-mini size-5 shrink-0"></span>
+      {%- else %}
+      <span class="hero-exclamation-circle-mini size-5 shrink-0"></span>
+      {%- endif %}
+      <div>
+        <p>{{ msg }}</p>
+      </div>
+      <div class="flex-1"></div>
+      <button type="button" class="group self-start cursor-pointer" aria-label="close">
+        <span class="hero-x-mark-solid size-5 opacity-40 group-hover:opacity-70"></span>
+      </button>
+    </div>
+  </div>
+  {%- endif -%}
+</div>

@@ -1,0 +1,15 @@
+fastapi==0.162.5
+uvicorn==0.54.0
+grpcio==1.85.1
+grpcio-tools==1.85.1
+protobuf==7.36.2
+httpx==0.28.1
+opentelemetry-distro==0.66b2
+opentelemetry-exporter-otlp-proto-grpc==1.45.2
+opentelemetry-instrumentation-fastapi==0.66b2
+opentelemetry-instrumentation-grpc==0.66b2
+opentelemetry-instrumentation-httpx==0.66b2
+opentelemetry-instrumentation-system-metrics==0.66b2
+opentelemetry-resource-detector-containerid==0.66b2
+opentelemetry-sdk-extension-aws
+opentelemetry-resourcedetector-gcp

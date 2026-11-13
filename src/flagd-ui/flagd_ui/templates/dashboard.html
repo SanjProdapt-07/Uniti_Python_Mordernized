@@ -1,0 +1,14 @@
+{% extends "root.html" %}
+{% block content %}
+<div class="relative min-h-screen">
+  {% include "partials/navbar.html" %}
+
+  {% include "partials/flashes.html" %}
+
+  <form onsubmit="return false">
+    <div class="container mx-auto px-4 py-8">
+      {% include "partials/dashboard_grid.html" %}
+    </div>
+  </form>
+</div>
+{% endblock %}

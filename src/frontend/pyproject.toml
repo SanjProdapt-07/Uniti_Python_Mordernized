@@ -1,0 +1,10 @@
+[project]
+name = "frontend"
+version = "0.1.0"
+description = "OpenTelemetry Demo frontend server: API routes and the exported React client"
+requires-python = ">=3.14"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "tests"]
+asyncio_default_fixture_loop_scope = "function"

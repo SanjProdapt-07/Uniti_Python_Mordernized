@@ -1,0 +1,17 @@
+<div id="scheduler-history">
+  {%- if scheduler.history %}
+  <div class="mt-8 rounded-md bg-gray-800 p-6 text-gray-300">
+    <p class="mb-4 text-lg font-semibold">Recent activations</p>
+    <ul class="text-sm">
+      {%- for entry in scheduler.history %}
+      <li class="flex justify-between border-b border-gray-700 py-2 last:border-b-0">
+        <span>{{ entry.flag }} = {{ entry.variant }}</span>
+        <span class="text-gray-400">
+          {{ entry.started_at.strftime("%H:%M:%S UTC") }} for {{ format_ms(entry.duration_ms) }}
+        </span>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+  {%- endif %}
+</div>

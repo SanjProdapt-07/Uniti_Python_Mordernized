@@ -1,0 +1,32 @@
+<div
+  id="{{ flag_dom_id(name) }}"
+  class="mb-4 flex flex-auto flex-col justify-between rounded-md bg-gray-800 p-6 text-gray-300 shadow-md"
+>
+  <div>
+    <p class="mb-4 text-lg font-semibold">{{ name }}</p>
+    <p class="mb-4 text-sm">{{ field(data, "description") }}</p>
+  </div>
+  <div>
+    <div class="flex items-center justify-between">
+      {%- set current = selected_variant(data) %}
+      <fieldset class="fieldset mb-2">
+        <label>
+          <select
+            name="{{ name }}"
+            class="w-full select"
+            ws-send
+            hx-trigger="change"
+            hx-vals='{{ {"__event": "flag_changed", "__target": name}|tojson }}'
+          >
+            {%- for variant in variants_of(data) %}
+            <option value="{{ variant }}"{% if variant|string == current|string %} selected{% endif %}>{{ variant }}</option>
+            {%- endfor %}
+          </select>
+        </label>
+      </fieldset>
+      {%- if has_targeting(data) %}
+      <div class="text-sm mb-2 text-warning">This flag has targeting rules.</div>
+      {%- endif %}
+    </div>
+  </div>
+</div>

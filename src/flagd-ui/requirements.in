@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+websockets
+jinja2
+python-multipart
+opentelemetry-distro
+opentelemetry-exporter-otlp-proto-http
+opentelemetry-instrumentation-fastapi
