@@ -10,4 +10,4 @@ opentelemetry-distro==0.66b2
 opentelemetry-exporter-otlp==1.45.2
 opentelemetry-instrumentation-grpc==0.66b2
 opentelemetry-instrumentation-logging==0.66b2
-prometheus-client==0.25.0
+prometheus-client==0.26.0
