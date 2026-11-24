@@ -1,6 +1,6 @@
-confluent-kafka==2.16.1
-grpcio==1.85.1
-grpcio-tools==1.85.1
+confluent-kafka==2.16.2
+grpcio==1.85.3
+grpcio-tools==1.85.3
 openfeature-provider-flagd==0.6.1
 openfeature-sdk==0.10.0
 opentelemetry-api==1.45.2
